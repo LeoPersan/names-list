@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <title>Lista de Nomes</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        #names-list .list-group-item {
+            cursor: pointer;
+        }
+        .list-group-item:hover {
+            background-color: #d6d8db;
+            border-color: #d6d8db;
+        }
+        .list-group-item.active {
+            background-color: #9c9c9c;
+            border-color: #9c9c9c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Lista de Nomes</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="https://leopersan.github.io/">LeoPersan</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="https://github.com/LeoPersan/">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="mt-5">Lista de Nomes</h1>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-3">
+                <ul class="list-group" id="names-list">
+                    <li class="list-group-item list-group-item-action" index="0">Nome</li>
+                </ul>
+            </div>
+            <div class="col-9">
+                <div class="card" id="panel">
+                    <div class="card-header"></div>
+                    <div class="card-body">
+                        <h4 class="card-title">Endereço:</h4>
+                        <p class="card-text">
+                            <dl>
+                                <dt>País</dt>
+                                <dd id="country"></dd>
+                                <dt>Estado</dt>
+                                <dd id="state"></dd>
+                                <dt>Cidade</dt>
+                                <dd id="city"></dd>
+                                <dt>Rua</dt>
+                                <dd id="street"></dd>
+                            </dl>
+                        </p>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <dl>
+                            <dt>Telefone</dt>
+                            <dd id="telephone"></dd>
+                            <dt>Nascimento</dt>
+                            <dd id="birthday"></dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const people = [
+            {name: "Fulano", street: "Rua A", city: "cidadeA", state: "estadoA", country: "paísA", telephone: "99999999999", birthday: "1990-07-12"},
+            {name: "Fulano1", street: "Rua A1", city: "cidadeA1", state: "estadoA1", country: "paísA1", telephone: "99999999991", birthday: "1990-07-11"},
+            {name: "Fulano2", street: "Rua A2", city: "cidadeA2", state: "estadoA2", country: "paísA2", telephone: "99999999992", birthday: "1990-07-12"},
+            {name: "Fulano3", street: "Rua A3", city: "cidadeA3", state: "estadoA3", country: "paísA3", telephone: "99999999993", birthday: "1990-07-13"},
+            {name: "Fulano4", street: "Rua A4", city: "cidadeA4", state: "estadoA4", country: "paísA4", telephone: "99999999994", birthday: "1990-07-14"},
+            {name: "Fulano5", street: "Rua A5", city: "cidadeA5", state: "estadoA5", country: "paísA5", telephone: "99999999995", birthday: "1990-07-15"},
+            {name: "Fulano6", street: "Rua A6", city: "cidadeA6", state: "estadoA6", country: "paísA6", telephone: "99999999996", birthday: "1990-07-16"},
+            {name: "Fulano7", street: "Rua A7", city: "cidadeA7", state: "estadoA7", country: "paísA7", telephone: "99999999997", birthday: "1990-07-17"},
+            {name: "Fulano8", street: "Rua A8", city: "cidadeA8", state: "estadoA8", country: "paísA8", telephone: "99999999998", birthday: "1990-07-18"},
+            {name: "Fulano9", street: "Rua A9", city: "cidadeA9", state: "estadoA9", country: "paísA9", telephone: "99999999999", birthday: "1990-07-19"},
+            {name: "Fulano0", street: "Rua A0", city: "cidadeA0", state: "estadoA0", country: "paísA0", telephone: "99999999990", birthday: "1990-07-10"},
+            {name: "Fulano10", street: "Rua A10", city: "cidadeA10", state: "estadoA10", country: "paísA10", telephone: "99999999910", birthday: "1990-07-10"},
+        ];
+
+        panel = document.querySelector('#panel');
+        panel.addPerson = person => {
+            panel.querySelector('.card-header').textContent = person.name;
+            panel.querySelector('#country').textContent = person.country;
+            panel.querySelector('#state').textContent = person.state;
+            panel.querySelector('#city').textContent = person.city;
+            panel.querySelector('#street').textContent = person.street;
+            panel.querySelector('#telephone').textContent = person.telephone;
+            panel.querySelector('#birthday').textContent = person.birthday;
+        }
+
+        namesList = document.querySelector('#names-list');
+        namesList.addName = (nameItem) => {
+            namesList.appendChild(nameItem);
+        }
+
+        nameItem = namesList.querySelector('.list-group-item');
+        nameItem.attributes.index.value = -1
+        nameItem.addPerson = (person,index) => {
+            nameItem.attributes.index.value = (index!==undefined) ? index : parseFloat(nameItem.attributes.index.value)+1;
+            let item = nameItem.cloneNode();
+            item.textContent = person.name;
+            item.onclick = () => {
+                namesList.querySelectorAll('.list-group-item').forEach(nameItem => {
+                    nameItem.classList.remove('active')
+                })
+                item.classList.add('active')
+                panel.addPerson(people[item.attributes.index.value]);
+            }
+            return item;
+        }
+
+        people.forEach((person,index) => {
+            namesList.addName(nameItem.addPerson(person,index));
+        });
+        nameItem.remove()
+    </script>
+</body>
+
+</html>
